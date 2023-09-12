@@ -1,5 +1,6 @@
 ﻿using Domain.Models;
 using Npgsql;
+using Restoran.Infrastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,13 +9,14 @@ using System.Threading.Tasks;
 
 namespace Infrastacture.Persistence
 {
-    internal class DbGreade
+    public class DbGreade : Person
 
-    { 
-        public async Task <Grade > GetByIdAsync (int id)
+    {
+        internal class Dbcontext : IdbContext
         {
-            using NpgsqlConnection connection= new NpgsqlConnection();
-
+            internal class dbcontext : IdbContext
+            {
+            }
         }
     }
 }

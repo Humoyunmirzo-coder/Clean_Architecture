@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Infrastacture.Persistence
 {
-    public  class IRepository <T>
+    internal class DbStudent
     {
     }
 }

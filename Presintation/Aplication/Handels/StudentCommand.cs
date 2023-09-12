@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace Aplication.Handels
 {
-    public  class StudentCommand : IRepository<Student>
+
+    public class StudentCommand : IRepository
 
     {
         public readonly StudentCommand _db = new StudentCommand();

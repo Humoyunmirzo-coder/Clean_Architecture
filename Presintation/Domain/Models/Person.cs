@@ -12,5 +12,6 @@ namespace Domain.Models
         public DateTime Birthday { get; set; }
       
         public bool Gender { get; set; }
+        public string Phone {  get; set; }
     }
 }
