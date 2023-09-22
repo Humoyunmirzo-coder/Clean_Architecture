@@ -3,10 +3,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace EfCore.Migrations
+namespace EfCore.ForDb
 {
     /// <inheritdoc />
-    public partial class InitDB3 : Migration
+    public partial class CustomerDb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -20,18 +20,11 @@ namespace EfCore.Migrations
                     FirstName = table.Column<string>(type: "text", nullable: false),
                     LastName = table.Column<string>(type: "text", nullable: false),
                     Email = table.Column<string>(type: "text", nullable: false),
-                    PhoneNumber = table.Column<string>(type: "text", nullable: false),
-                    customersCustomerId = table.Column<int>(type: "integer", nullable: false)
+                    PhoneNumber = table.Column<string>(type: "text", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_customers", x => x.CustomerId);
-                    table.ForeignKey(
-                        name: "FK_customers_customers_customersCustomerId",
-                        column: x => x.customersCustomerId,
-                        principalTable: "customers",
-                        principalColumn: "CustomerId",
-                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -66,11 +59,6 @@ namespace EfCore.Migrations
                         principalTable: "customers",
                         principalColumn: "CustomerId");
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_customers_customersCustomerId",
-                table: "customers",
-                column: "customersCustomerId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_orderDetails_CustomersCustomerId",

@@ -3,20 +3,17 @@ using System;
 using EfCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
-namespace EfCore.Migrations
+namespace EfCore.ForDb
 {
     [DbContext(typeof(DbContextt))]
-    [Migration("20230912105539_InitDB3")]
-    partial class InitDB3
+    partial class DbContexttModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -49,12 +46,7 @@ namespace EfCore.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("customersCustomerId")
-                        .HasColumnType("integer");
-
                     b.HasKey("CustomerId");
-
-                    b.HasIndex("customersCustomerId");
 
                     b.ToTable("customers");
                 });
@@ -98,17 +90,6 @@ namespace EfCore.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("properties");
-                });
-
-            modelBuilder.Entity("EfCore.Models.Customers", b =>
-                {
-                    b.HasOne("EfCore.Models.Customers", "customers")
-                        .WithMany()
-                        .HasForeignKey("customersCustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("customers");
                 });
 
             modelBuilder.Entity("EfCore.Models.OrderDetails", b =>

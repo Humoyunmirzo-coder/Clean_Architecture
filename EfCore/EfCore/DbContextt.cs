@@ -10,7 +10,7 @@ public class DbContextt : DbContext
 
     public DbContextt()
     {
-        
+        Database.EnsureCreated();
     }
     public DbContextt(DbContextOptions<DbContext>options):base(options) 
     {

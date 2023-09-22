@@ -9,15 +9,14 @@ namespace EfCore.Models;
 
 public  class Customers
 {
+    public static object ChangeTracker { get; internal set; }
     [Key]
     public int CustomerId { get; set; } 
     public string FirstName { get; set; }
     public string LastName { get; set; }
     public string Email { get; set; }
     public string PhoneNumber { get; set; }
-    public Customers customers { get; set; }
     public ICollection<OrderDetails> OrderDetails { get; set; }
-    public int Id { get; internal set; }
 
     //  Customers customers = new Customers();  
 
